@@ -1,0 +1,55 @@
+.footer {
+  background-color: #000000;
+  width: 100%;
+  padding-top: 70px;
+  padding-bottom: 65px;
+}
+.footer_wrapper {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+.footer_main {
+  display: flex;
+  justify-content: space-between;
+}
+.footer_social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.footer_social-link:hover {
+  color: lightgray;
+  text-decoration: underline;
+}
+.footer_contact {
+  display: flex;
+  flex-direction: column;
+}
+.footer_contact a:not(:last-child) {
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+.footer_contact-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.footer_sub-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer_sub-block-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #EEF0F2;
+}
+.footer_sub-block-payment {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  color: white;
+}
+
+/*# sourceMappingURL=Footer.module.css.map */

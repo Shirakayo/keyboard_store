@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  max-height: 312px;
+  color: #EEF0F2;
+
+  &_image {
+    width: auto;
+    height: 50%;
+    margin-bottom: 48px;
+  }
+
+  &_name {
+    text-align: center;
+    margin-bottom: 10px;
+    min-height: 44px;
+  }
+
+  &_price {
+    text-align: center;
+  }
+}

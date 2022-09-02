@@ -1,0 +1,15 @@
+.dropdown_content {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+
+  &-label {
+    display: flex;
+    gap: 15px;
+
+    input {
+      //display: none;
+    }
+  }
+}

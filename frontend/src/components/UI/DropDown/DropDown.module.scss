@@ -1,0 +1,27 @@
+.dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-left: -32px;
+  top: 100%;
+  width: auto;
+  color: white;
+  background-color: rgb(35,35,35);
+  padding: 20px;
+  border: 1px solid rgba(255,255,255, .15);
+
+  &_links {
+    text-decoration: none;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+  }
+}

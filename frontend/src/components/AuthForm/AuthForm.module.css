@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_error {
+  color: darkred;
+}
+.form_input {
+  position: relative;
+}
+.form_input:not(:last-child) {
+  margin-bottom: 30px;
+}
+.form_input input {
+  padding: 10px 20px;
+  width: 600px;
+  max-width: 600px;
+  outline: none;
+}
+
+/*# sourceMappingURL=AuthForm.module.css.map */

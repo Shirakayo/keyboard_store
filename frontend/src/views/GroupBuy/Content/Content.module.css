@@ -1,0 +1,23 @@
+.wrapper {
+  padding: 10px;
+  min-height: 100vh;
+}
+
+.empty_items {
+  text-align: center;
+  padding-top: 100px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: #EEF0F2;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 280px);
+  grid-template-rows: auto;
+  row-gap: 10px;
+  column-gap: 10px;
+}
+
+/*# sourceMappingURL=Content.module.css.map */

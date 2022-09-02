@@ -1,0 +1,22 @@
+.aside {
+  width: 280px;
+  margin-right: 40px;
+}
+.aside_title {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  color: #EEF0F2;
+  font-weight: 700;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+.aside_dropdown {
+  color: white;
+  font-size: 1.5rem;
+  padding-top: 10px;
+}
+.aside_dropdown_title {
+  font-size: 1.3rem;
+}
+
+/*# sourceMappingURL=AsideFilter.module.css.map */
