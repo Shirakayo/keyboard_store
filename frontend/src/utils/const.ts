@@ -10,7 +10,7 @@ import is_switches from '../assets/img/InStock/is_switches.png';
 import is_stabs from '../assets/img/InStock/is_stabs.png';
 import is_lubs from '../assets/img/InStock/is_lube.png';
 import is_acces from '../assets/img/InStock/is_acces.png';
-import is_desmats from '../assets/img/InStock/is_deskmat.png';
+import is_deskmats from '../assets/img/InStock/is_deskmat.png';
 
 
 export const WELCOME_ROUTES = '/'
