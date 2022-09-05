@@ -11,7 +11,6 @@ const ContentItems = ({type}: PropsWithChildren<{type: number}>) => {
     const dispatch = useAppDispatch();
     const {items, status, itemStatus, sortedType} = useSelector(shopSelector);
     const {brand} = useSelector(filterSelector);
-    console.log(items)
 
 
     useEffect(() => {

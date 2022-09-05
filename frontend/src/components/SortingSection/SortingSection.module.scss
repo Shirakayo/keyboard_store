@@ -38,9 +38,24 @@
   &_sort-type {
     font-size: 1.1rem;
     color: #EEF0F2;
+    cursor: pointer;
   }
 }
 
+.filter_sort_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-
+.dropdown-enter {
+  opacity: 0;
+}
+.dropdown-active {
+  opacity: 1;
+  transition: opacity 400ms;
+}
+.dropdown-exit {
+  opacity: 1;
+}
 
