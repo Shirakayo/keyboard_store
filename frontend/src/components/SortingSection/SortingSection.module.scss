@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.count {
+  color: #EEF0F2;
+  font-size: 1.2rem;
+}
+
+.filter_title {
+  color: darkgray;
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.select {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  color: #EEF0F2;
+
+  option {
+    background: #232323;
+    border: none;
+    outline: none;
+  }
+}
+
+.preview {
+  display: flex;
+  gap: 5px;
+
+  &_sort-type {
+    font-size: 1.1rem;
+    color: #EEF0F2;
+  }
+}
+
+
+
+

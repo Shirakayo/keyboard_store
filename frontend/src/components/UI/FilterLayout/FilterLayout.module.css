@@ -2,4 +2,8 @@
   display: flex;
 }
 
+.content_wrapper {
+  width: 100%;
+}
+
 /*# sourceMappingURL=FilterLayout.module.css.map */

@@ -9,19 +9,20 @@ import {filterSelector} from "../../../../store/slices/filterSlice";
 
 const ContentItems = ({type}: PropsWithChildren<{type: number}>) => {
     const dispatch = useAppDispatch();
-    const {items, status, itemStatus} = useSelector(shopSelector);
+    const {items, status, itemStatus, sortedType} = useSelector(shopSelector);
     const {brand} = useSelector(filterSelector);
+    console.log(items)
 
 
     useEffect(() => {
-        dispatch(fetchShopItems({itemStatus, type, brand}))
+        dispatch(fetchShopItems({itemStatus, type, brand, sortedType}))
 
         return () => {
             dispatch(clearShopItem())
         }
-    }, [dispatch, itemStatus, type, brand])
+    }, [dispatch, itemStatus, type, brand, sortedType])
 
-    if (items.length === 0) {
+    if (items.length === 0 && status === 'SUCCESS') {
         return (
             <h2 className={style.empty_items}>No Products Available</h2>
         )

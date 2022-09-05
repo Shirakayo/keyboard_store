@@ -31,19 +31,41 @@ class DeviceController {
     }
 
     async getAll(req, res) {
-        let {brandId, typeId, limit, page, status} = req.query
+        let {brandId, typeId, limit, page, status, sortType} = req.query
         page = page || 1
         limit = limit || 9
         let offset = page * limit - limit
         let devices;
         let brands;
         if (status && typeId) {
-            devices = await Item.findAndCountAll({where:{status, typeId}, limit, offset})
-            brands = await Brand.findAndCountAll({where:{typeId, status}, limit, offset})
+            devices = await Item.findAndCountAll({where: {status, typeId}, limit, offset})
+            brands = await Brand.findAndCountAll({where: {typeId, status}, limit, offset})
         }
         if (status && typeId && brandId) {
-            devices = await Item.findAndCountAll({where:{status, typeId, brandId}, limit, offset})
-            brands = await Brand.findAndCountAll({where:{typeId, status}, limit, offset})
+            devices = await Item.findAndCountAll({where: {status, typeId, brandId}, limit, offset})
+            brands = await Brand.findAndCountAll({where: {typeId, status}, limit, offset})
+        }
+        if (status && typeId && sortType) {
+            devices = await Item.findAndCountAll({where: {status, typeId}, limit, offset})
+            brands = await Brand.findAndCountAll({where: {typeId, status}, limit, offset})
+            if (sortType === 'a_desc') {
+                devices.rows.sort((a, b) => a.name > b.name ? 1 : -1)
+            }
+            if (sortType === 'a_asc') {
+                devices.rows.sort((a, b) => a.name < b.name ? 1 : -1)
+            }
+            if (sortType === 'price_desc') {
+                devices.rows.sort((a, b) => a.price < b.price ? 1 : -1)
+            }
+            if (sortType === 'price_asc') {
+                devices.rows.sort((a, b) => a.price > b.price ? 1 : -1)
+            }
+            if (sortType === 'date_desc') {
+                devices = await Item.findAndCountAll({where: {status, typeId}, order: [['updatedAt', 'DESC']]})
+            }
+            if (sortType === 'date_asc') {
+                devices = await Item.findAndCountAll({where: {status, typeId}, order: [['updatedAt', 'ASC']]})
+            }
         }
         const returnBrands = brands.rows.map(item => item).flat()
         const deviceReturn = {

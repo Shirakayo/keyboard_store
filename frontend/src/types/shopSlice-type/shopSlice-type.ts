@@ -23,7 +23,7 @@ export interface shopSliceState {
     count: number;
     brands: BrandForShop[];
     itemStatus: string;
-    type: number;
+    sortedType: '';
     limit: number;
     page: number;
     status: string;
@@ -39,9 +39,24 @@ export interface fetchItemsProps {
     type?: number;
     brand?: number;
     itemStatus: string;
+    sortedType?: string;
 }
 
 export interface fetchBrandsValue {
     typeId: number;
     status: string;
+}
+
+type brands = {
+    brand: string;
+}
+
+type devices = {
+    count: number;
+    rows: []
+}
+
+export interface getItemsFetch {
+    devices: devices[]
+    returnBrands: brands[]
 }

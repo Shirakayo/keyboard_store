@@ -74,6 +74,8 @@ const userSlice = createSlice({
             })
             .addCase(logoutUser.fulfilled, (state) => {
                 state.isAuthenticated = false;
+                state.role = '';
+                state.user = []
             })
             .addCase(authenticatedUser.fulfilled, (state, action: { payload: any }) => {
                 state.isAuthenticated = true;

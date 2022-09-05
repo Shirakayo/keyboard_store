@@ -8,7 +8,7 @@ const initialState: shopSliceState = {
     items: [],
     count: 0,
     brands: [],
-    type: 1,
+    sortedType: '',
     limit: 0,
     page: 1,
     itemStatus: 'Group-buy',
@@ -16,11 +16,11 @@ const initialState: shopSliceState = {
 }
 
 export const fetchShopItems = createAsyncThunk<{}, fetchItemsProps>('shop/fetchItems',
-    async ({brand, type, itemStatus}) => {
+    async ({brand, type, itemStatus, sortedType}) => {
     try {
-        const {data} = await fetchItems(itemStatus, brand, type)
+        const {data} = await fetchItems(itemStatus, brand, type, sortedType)
         return {
-            count: data.devices,
+            count: data.devices.count,
             items: data.devices.rows,
             brands: data.returnBrands
         }
@@ -38,6 +38,9 @@ export const shopSlice = createSlice({
         },
         clearShopItem(state) {
             state.items = []
+        },
+        changeSortedType(state, action) {
+            state.sortedType = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -53,5 +56,5 @@ export const shopSlice = createSlice({
 
 export const shopSelector = (state: RootState) => state.shop;
 
-export const { editItemStatus, clearShopItem } = shopSlice.actions
+export const { editItemStatus, clearShopItem, changeSortedType } = shopSlice.actions
 export default shopSlice.reducer;

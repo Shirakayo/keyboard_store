@@ -6,7 +6,7 @@ const FilterLayout = ({children}: PropsWithChildren ) => {
     return (
         <div className={style.filter_wrapper}>
             <AsideFilter />
-            <div>
+            <div className={style.content_wrapper}>
                 {children}
             </div>
         </div>

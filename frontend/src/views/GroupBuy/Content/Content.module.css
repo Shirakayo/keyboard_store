@@ -1,6 +1,7 @@
 .wrapper {
   padding: 10px;
   min-height: 100vh;
+  width: 100%;
 }
 
 .empty_items {
