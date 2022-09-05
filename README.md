@@ -1,4 +1,4 @@
-A copy of dailyclag.com 
+A copy of dailyclack.com 
 
 
 Technology Stack: 
