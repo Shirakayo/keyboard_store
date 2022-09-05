@@ -5,6 +5,8 @@ import {changeSortedType, shopSelector} from "../../store/slices/shopSlice";
 import {useAppDispatch} from "../../store/store";
 import SortingDropDown from "../UI/SortingDropDown/SortingDropDown";
 import {useOnClickOutside} from "../../hooks/UseOnClickOutside";
+import {RiArrowDropDownLine, RiArrowDropUpLine} from "react-icons/ri";
+import { CSSTransition } from 'react-transition-group'
 
 const SortingSection = () => {
     const {count} = useSelector(shopSelector)
@@ -28,10 +30,15 @@ const SortingSection = () => {
             <div>
                 <div className={style.preview}>
                     <span  className={style.filter_title}>Sort By</span>
-                    <p onClick={() => setViewDropDown(!viewDropDown)} className={style['preview_sort-type']}>{viewSortType}</p>
+                    <div onClick={() => setViewDropDown(!viewDropDown)} className={style.filter_sort_section}>
+                        <p  className={style['preview_sort-type']}>{viewSortType}</p>
+                        {viewDropDown ? <RiArrowDropUpLine className={style.dropdown_arrow} size={25} color={'white'} /> : <RiArrowDropDownLine className={style.dropdown_arrow} size={25} color={'white'} />}
+                    </div>
                 </div>
                 <div ref={ref}>
-                    {viewDropDown && <SortingDropDown setSortValue={setSortValue} setViewSortType={setViewSortType}/>}
+                      <CSSTransition classNames={style.dropdown} in={viewDropDown} timeout={120} unmountOnExit>
+                          <SortingDropDown setViewDropDown={setViewDropDown} setSortValue={setSortValue} setViewSortType={setViewSortType}/>
+                      </CSSTransition>
                 </div>
             </div>
         </div>

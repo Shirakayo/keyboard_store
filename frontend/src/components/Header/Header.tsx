@@ -56,6 +56,7 @@ export const Header = ({ welcomeStyleHeader }: PropsWithChildren<{welcomeStyleHe
           <ul className={style.header_nav_items}>
             {navList.map((item) => (
               <NavItem
+                key={item.path}
                 title={item.title}
                 dropList={item.dropDown}
                 path={item.path}

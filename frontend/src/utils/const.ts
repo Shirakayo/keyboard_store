@@ -86,7 +86,7 @@ export const isItemsList = [
 		name: "in-stock-accessories"
 	},
 	{
-		img: is_desmats,
+		img: is_deskmats,
 		name: "in-stock-deskmats"
 	}
 ]

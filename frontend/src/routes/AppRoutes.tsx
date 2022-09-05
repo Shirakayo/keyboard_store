@@ -13,9 +13,9 @@ const AppRoutes: FC = () => {
                 <Route path={route.path} element={route.component}/>
             )}
             {publicRoutes.map(route =>
-                <Route path={route.path} element={route.component}>
+                <Route key={route.path} path={route.path} element={route.component}>
                     {route.subRoute && route.subRoute.map(sub =>
-                        <Route path={sub.path} element={sub.component} />
+                        <Route key={sub.path} path={sub.path} element={sub.component} />
                     )}
                 </Route>
             )}
