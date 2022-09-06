@@ -16,3 +16,9 @@ export const fetchItems = async (
     })
 }
 
+export const fetchItemInfo = async (
+    id: string
+) => {
+    return await $host.get(`item/${id}`)
+}
+

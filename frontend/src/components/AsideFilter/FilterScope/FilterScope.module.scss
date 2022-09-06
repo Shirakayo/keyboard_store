@@ -4,12 +4,32 @@
   padding-top: 10px;
   gap: 10px;
 
+
   &-label {
     display: flex;
-    gap: 15px;
+    position: relative;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+  }
 
-    input {
-      //display: none;
+  &_input {
+    appearance: none;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    border: 1px solid rgba(255,255,255, .3);
+    width: 14px;
+    height: 14px;
+
+    &_active {
+      background-color: #EEF0F2;
     }
+  }
+
+  &-span {
+    font-size: 1.1rem;
+    padding-left: 25px;
+    opacity: .8;
   }
 }

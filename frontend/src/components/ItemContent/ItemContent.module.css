@@ -1,0 +1,67 @@
+.content_wrapper {
+  display: flex;
+  gap: 80px;
+}
+
+.image {
+  border-radius: 10px;
+}
+
+.content {
+  color: #EEF0F2;
+}
+.content_title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.content_price {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+.content_status {
+  display: block;
+  color: red;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 25px;
+  margin-bottom: 30px;
+}
+
+.quantity_title {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid rgba(68, 68, 68, 0.7);
+  border-radius: 5px;
+}
+.quantity input[type=number] {
+  -moz-appearance: textfield;
+}
+.quantity input[type=number]:hover,
+.quantity input[type=number]:focus {
+  -moz-appearance: none;
+}
+.quantity button {
+  background-color: transparent;
+  border: none;
+  padding: 0 25px;
+  cursor: pointer;
+}
+.quantity_field {
+  height: 45px;
+  width: 46px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #EEF0F2;
+  padding: 5px;
+  outline: none;
+  border: none;
+}
+
+/*# sourceMappingURL=ItemContent.module.css.map */

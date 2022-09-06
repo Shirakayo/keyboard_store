@@ -6,7 +6,27 @@
 }
 .dropdown_content-label {
   display: flex;
-  gap: 15px;
+  position: relative;
+  gap: 10px;
+  align-items: center;
+  cursor: pointer;
+}
+.dropdown_content_input {
+  appearance: none;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 14px;
+  height: 14px;
+}
+.dropdown_content_input_active {
+  background-color: #EEF0F2;
+}
+.dropdown_content-span {
+  font-size: 1.1rem;
+  padding-left: 25px;
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=FilterScope.module.css.map */

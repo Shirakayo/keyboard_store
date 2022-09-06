@@ -1,7 +1,7 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {fetchItemsProps, shopSliceState, shopStatus} from "../../types/shopSlice-type/shopSlice-type";
 import {RootState} from "../store";
-import {fetchItems} from "../../http/api/shopApi";
+import {fetchItemInfo, fetchItems} from "../../http/api/shopApi";
 
 
 const initialState: shopSliceState = {
@@ -29,6 +29,16 @@ export const fetchShopItems = createAsyncThunk<{}, fetchItemsProps>('shop/fetchI
     }
 })
 
+export const fetchInfoForItem = createAsyncThunk('shop/fetchInfoItem',
+    async (id: string) => {
+        try {
+            const {data} = await fetchItemInfo(id)
+            return data
+        } catch (error) {
+            console.log(error)
+        }
+    })
+
 export const shopSlice = createSlice({
     name: 'shop',
     initialState,
@@ -49,6 +59,21 @@ export const shopSlice = createSlice({
             state.brands = action.payload.brands
             state.count = action.payload.count
             state.status = shopStatus.SUCCESS
+        })
+
+        builder.addCase(fetchShopItems.rejected, (state) => {
+            state.status = shopStatus.ERROR
+            state.items = []
+        })
+
+        builder.addCase(fetchInfoForItem.fulfilled, (state, action) => {
+            state.items = action.payload
+            state.status = shopStatus.SUCCESS
+        })
+
+        builder.addCase(fetchInfoForItem.rejected, (state) => {
+            state.items = []
+            state.status = shopStatus.ERROR
         })
     }
 })

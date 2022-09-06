@@ -28,7 +28,7 @@ const ContentItems = ({type}: PropsWithChildren<{type: number}>) => {
     }
 
     const successItems = items.map(item =>
-        <ContentItem image={item.img} price={item.price} name={item.name} status={item.status}/>
+        <ContentItem image={item.img} id={item.id} price={item.price} name={item.name} status={item.status}/>
     )
 
     const loadingItems = [...Array(6)].map(() => <Skeleton/>)

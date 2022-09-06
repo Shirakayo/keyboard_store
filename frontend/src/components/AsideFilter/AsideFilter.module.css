@@ -19,4 +19,11 @@
   font-size: 1.3rem;
 }
 
+.title_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=AsideFilter.module.css.map */

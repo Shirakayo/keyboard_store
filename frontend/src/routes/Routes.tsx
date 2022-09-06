@@ -3,7 +3,7 @@ import {
     CART_ROUTE, CONTACT_ROUTES, GB_ROUTES, IS_ROUTES,
     LOGIN_ROUTE,
     REGISTRATION_ROUTES,
-    SHOP_ITEMS_ROUTES,
+    PRODUCTS_ROUTES,
     SUPPORT_ROUTES, UPDATES_ROUTES,
     WELCOME_ROUTES
 } from "../utils/const";
@@ -77,7 +77,7 @@ export const publicRoutes = [
         component: <Welcome />
     },
     {
-        path: SHOP_ITEMS_ROUTES,
+        path: PRODUCTS_ROUTES,
         component: <ItemPage />
     },
     {

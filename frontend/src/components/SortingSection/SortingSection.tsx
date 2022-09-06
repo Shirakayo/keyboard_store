@@ -32,7 +32,7 @@ const SortingSection = () => {
                     <span  className={style.filter_title}>Sort By</span>
                     <div onClick={() => setViewDropDown(!viewDropDown)} className={style.filter_sort_section}>
                         <p  className={style['preview_sort-type']}>{viewSortType}</p>
-                        {viewDropDown ? <RiArrowDropUpLine className={style.dropdown_arrow} size={25} color={'white'} /> : <RiArrowDropDownLine className={style.dropdown_arrow} size={25} color={'white'} />}
+                        {viewDropDown ? <RiArrowDropUpLine size={25} color={'white'} /> : <RiArrowDropDownLine size={25} color={'white'} />}
                     </div>
                 </div>
                 <div ref={ref}>

@@ -19,7 +19,7 @@ export type BrandForShop = {
 
 
 export interface shopSliceState {
-    items: itemsForShop[],
+    items: itemsForShop[];
     count: number;
     brands: BrandForShop[];
     itemStatus: string;
