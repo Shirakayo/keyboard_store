@@ -12,6 +12,16 @@ const ItemContent = (item: ItemContentProps) => {
   const { img, status, price, name } = item;
   const [quantityValue, setQuantityValue] = useState(1);
   
+  const plusQuantityValue = () => {
+    setQuantityValue(prev => prev + 1)
+  }
+  
+  const minusQuantityValue = () => {
+    if (quantityValue > 1) {
+      setQuantityValue(prev => prev - 1)
+    }
+  }
+  
   
   const soldType = status === "Group-buy" ? "[GB]" : "[IS]";
 
@@ -35,7 +45,7 @@ const ItemContent = (item: ItemContentProps) => {
         <p className={style.content_status}>{status}</p>
         <small className={style.quantity_title}>Quantity:</small>
         <div className={style.quantity}>
-          <button>-</button>
+          <button onClick={minusQuantityValue}>-</button>
           <input
             type="number"
             className={style.quantity_field}
@@ -43,7 +53,7 @@ const ItemContent = (item: ItemContentProps) => {
             value={quantityValue}
             onChange={(e) => validateInput(e.target.value)}
           />
-          <button>+</button>
+          <button onClick={plusQuantityValue}>+</button>
         </div>
         <button className={style.cart_button}>Add to cart</button>
       </div>

@@ -28,7 +28,8 @@ export interface axiosGetResponse {
 export const enum Status {
     LOADING = 'loading',
     SUCCESS = 'success',
-    ERROR = 'error'
+    ERROR = 'error',
+    DEFAULT = ''
 }
 
 export interface loginAction {
