@@ -11,6 +11,8 @@ interface ItemContentProps {
 const ItemContent = (item: ItemContentProps) => {
   const { img, status, price, name } = item;
   const [quantityValue, setQuantityValue] = useState(1);
+  
+  
   const soldType = status === "Group-buy" ? "[GB]" : "[IS]";
 
   const validateInput = (field: any) => {
@@ -43,6 +45,7 @@ const ItemContent = (item: ItemContentProps) => {
           />
           <button>+</button>
         </div>
+        <button className={style.cart_button}>Add to cart</button>
       </div>
     </div>
   );

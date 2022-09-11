@@ -6,13 +6,17 @@ import {clearShopItem, fetchShopItems, shopSelector} from "../../../../store/sli
 import ContentItem from "../ContentItem/ContentItem";
 import Skeleton from "../../../../components/UI/Skeleton/Skeleton";
 import {filterSelector} from "../../../../store/slices/filterSlice";
+import {Status} from "../../../../types/userSlice-types/userSlice-types";
 
 const ContentItems = ({type}: PropsWithChildren<{type: number}>) => {
     const dispatch = useAppDispatch();
     const {items, status, itemStatus, sortedType} = useSelector(shopSelector);
     const {brand} = useSelector(filterSelector);
-
-
+    
+    const successItems = items.map(item =>
+      <ContentItem image={item.img} id={item.id} price={item.price} name={item.name} status={item.status}/>
+    )
+    
     useEffect(() => {
         dispatch(fetchShopItems({itemStatus, type, brand, sortedType}))
 
@@ -21,20 +25,20 @@ const ContentItems = ({type}: PropsWithChildren<{type: number}>) => {
         }
     }, [dispatch, itemStatus, type, brand, sortedType])
 
-    if (items.length === 0 && status === 'SUCCESS') {
-        return (
-            <h2 className={style.empty_items}>No Products Available</h2>
-        )
+    if (items.length === 0 && status === Status.SUCCESS) {
+        return <h2 className={style.notification}>No Products Available</h2>
     }
-
-    const successItems = items.map(item =>
-        <ContentItem image={item.img} id={item.id} price={item.price} name={item.name} status={item.status}/>
-    )
-
+    
+    if (status === Status.ERROR) {
+        return <h2 className={style.notification}>Server error. Try again later</h2>
+    }
+    
     const loadingItems = [...Array(6)].map(() => <Skeleton/>)
+    
+    
     return (
         <div className={style.content}>
-            {status === 'LOADING' ? loadingItems : successItems}
+            {status === Status.LOADING ? loadingItems : successItems}
         </div>
     );
 };

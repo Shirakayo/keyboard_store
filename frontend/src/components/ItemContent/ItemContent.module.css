@@ -34,6 +34,7 @@
 
 .quantity {
   display: inline-flex;
+  margin-bottom: 20px;
   align-items: center;
   justify-content: flex-start;
   border: 1px solid rgba(68, 68, 68, 0.7);
@@ -62,6 +63,21 @@
   padding: 5px;
   outline: none;
   border: none;
+}
+
+.cart_button {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  padding: 15px;
+  border-radius: 5px;
+}
+.cart_button:hover {
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 /*# sourceMappingURL=ItemContent.module.css.map */

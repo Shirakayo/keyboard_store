@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import style from "../assets/style/Login/Login.module.scss";
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {IShopField} from "../types/Login/Login-types";
@@ -6,10 +6,11 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {REGISTRATION_ROUTES} from "../utils/const";
 import AuthForm from "../components/AuthForm/AuthForm";
 import {useAppDispatch} from "../store/store";
-import {fetchLoginUser, userSelector} from "../store/slices/userSlice";
+import {defaultStatus, fetchLoginUser, userSelector} from "../store/slices/userSlice";
 import Swal from 'sweetalert2'
 import {useSelector} from "react-redux";
 import PageLayout from "../components/UI/PageLayout/PageLayout";
+import {Status} from "../types/userSlice-types/userSlice-types";
 
 const Login = () => {
     const dispatch = useAppDispatch()
@@ -44,7 +45,21 @@ const Login = () => {
             confirmButtonText: "OK"
         })
     }
-
+    
+    useEffect(() => {
+        return () => {
+            dispatch(defaultStatus())
+        }
+    }, [])
+    
+    if (status === Status.SUCCESS) {
+        showAlertSuccess()
+        reset()
+    } else if (status === Status.ERROR) {
+        showAlertError()
+    }
+    
+    
 
     const onSubmit: SubmitHandler<IShopField> = (data) => {
         const formData = {
@@ -53,13 +68,8 @@ const Login = () => {
             saveStatus
         }
         dispatch(fetchLoginUser(formData))
-        if (status === 'success') {
-            showAlertSuccess()
-        } else if (status === 'error') {
-            showAlertError()
-        }
-        reset()
     }
+    
 
     return (
         <PageLayout>
