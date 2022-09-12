@@ -14,7 +14,7 @@ import {Status} from "../types/userSlice-types/userSlice-types";
 
 const Login = () => {
     const dispatch = useAppDispatch()
-    const {status} = useSelector(userSelector);
+    const {authStatus} = useSelector(userSelector);
     const [saveStatus, setSaveStatus] = useState(false);
     const navigate = useNavigate()
     const {
@@ -45,21 +45,21 @@ const Login = () => {
             confirmButtonText: "OK"
         })
     }
-    
+
     useEffect(() => {
         return () => {
             dispatch(defaultStatus())
         }
     }, [])
-    
-    if (status === Status.SUCCESS) {
+
+    if (authStatus === Status.SUCCESS) {
         showAlertSuccess()
         reset()
-    } else if (status === Status.ERROR) {
+    } else if (authStatus === Status.ERROR) {
         showAlertError()
     }
-    
-    
+
+
 
     const onSubmit: SubmitHandler<IShopField> = (data) => {
         const formData = {
@@ -69,7 +69,7 @@ const Login = () => {
         }
         dispatch(fetchLoginUser(formData))
     }
-    
+
 
     return (
         <PageLayout>

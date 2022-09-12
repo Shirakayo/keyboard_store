@@ -13,7 +13,8 @@ const initialState: IStateProps = {
 	user: [],
 	role: "USER",
 	isAuthenticated: false,
-	status: Status.DEFAULT
+	authStatus: Status.DEFAULT,
+	checkAuthStatus: Status.DEFAULT
 }
 
 export const registerUser = createAsyncThunk<{}, authAsyncProps>('user/registerUser',
@@ -60,28 +61,28 @@ const userSlice = createSlice({
 	initialState,
 	reducers: {
 		defaultStatus(state) {
-			state.status = Status.LOADING
+			state.authStatus = Status.DEFAULT
 		}
 	},
 	extraReducers: (builder) => {
 		builder
 			.addCase(fetchLoginUser.fulfilled, (state, action: { payload: any }) => {
 				debugger
-				state.status = Status.SUCCESS
+				state.authStatus = Status.SUCCESS
 				state.user = action.payload
 				state.role = action.payload.role
 				state.isAuthenticated = true;
 			})
 			.addCase(fetchLoginUser.pending, (state) => {
-				state.status = Status.LOADING
+				state.authStatus = Status.LOADING
 			})
 			.addCase(fetchLoginUser.rejected, (state) => {
 				state.isAuthenticated = false;
-				state.status = Status.ERROR
+				state.authStatus = Status.ERROR
 			})
 			.addCase(logoutUser.fulfilled, (state) => {
 				state.isAuthenticated = false;
-				state.status = Status.LOADING
+				state.authStatus = Status.DEFAULT
 				state.role = '';
 				state.user = []
 			})
@@ -89,12 +90,12 @@ const userSlice = createSlice({
 				state.isAuthenticated = true;
 				state.user = action.payload
 				state.role = action.payload.role
-				state.status = Status.SUCCESS
+				state.checkAuthStatus = Status.SUCCESS
 			})
 			.addCase(authenticatedUser.rejected, (state) => {
 				state.isAuthenticated = false;
 				state.user = []
-				state.status = Status.ERROR
+				state.checkAuthStatus = Status.ERROR
 			})
 	}
 })
