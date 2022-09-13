@@ -1,4 +1,3 @@
-const ApiError = require("../errors/ApiError");
 const {User, Cart} = require("../models/models");
 const bcrypt = require("bcrypt");
 const mailService = require("./mail-service")
@@ -9,13 +8,6 @@ const uuid = require('uuid')
 
 class UserService {
     async registration(email, password, role) {
-        if (!email || !password) {
-            return next(ApiError.badRequest('Некорректный email или password'))
-        }
-        const candidate = await User.findOne({where: {email}})
-        if (candidate) {
-            return next(ApiError.badRequest('Пользователь с таким email уже существует'))
-        }
         const hashPassword = await bcrypt.hash(password, 5)
         const activationLink = uuid.v4()
 

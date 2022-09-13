@@ -6,8 +6,15 @@ const userService = require('../services/user-service')
 
 
 class UserController {
-    async registration(req, res) {
+    async registration(req, res, next) {
         const {email, password, role} = req.body;
+        if (!email || !password) {
+            return next(ApiError.badRequest('Incorrect email or password'))
+        }
+        const candidate = await User.findOne({where: {email}})
+        if (candidate) {
+            return next(ApiError.badRequest('A user with this email already exists'))
+        }
         const userData = await userService.registration(email, password, role);
         res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
         return res.json(userData)
@@ -18,11 +25,11 @@ class UserController {
         const {email, password} = req.body
         const user = await User.findOne({where: {email}})
         if (!user) {
-            return next(ApiError.internal('Пользователь не найден'))
+            return next(ApiError.internal('User not found'))
         }
         let comparePassword = bcrypt.compareSync(password, user.password)
         if (!comparePassword) {
-            return next(ApiError.internal('Указан неверный пароль'))
+            return next(ApiError.internal('The password you entered is incorrect'))
         }
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token, user})
