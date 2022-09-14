@@ -8,16 +8,15 @@ import {authenticatedUser} from "./store/slices/userSlice";
 const App: FC = () => {
     const dispatch = useAppDispatch()
 
-    const authUser = () => {
-        dispatch(authenticatedUser())
-    }
-
     useEffect(() => {
         if (localStorage.getItem('token')) {
             authUser()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const authUser = () => {
+        dispatch(authenticatedUser())
+    }
 
     return (
         <BrowserRouter>
