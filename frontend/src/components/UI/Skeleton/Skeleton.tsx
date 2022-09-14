@@ -9,7 +9,7 @@ const Skeleton = () => {
             width={280}
             height={312}
             viewBox="0 0 280 312"
-            backgroundColor="#FFFFFF"
+            backgroundColor="rgba(0,0,0, .2)"
             foregroundColor="#ecebeb"
         >
             <rect x="-2" y="1" rx="0" ry="0" width="335" height="156"/>

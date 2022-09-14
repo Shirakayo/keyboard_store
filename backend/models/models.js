@@ -4,6 +4,8 @@ const {DataTypes} = require('sequelize')
 const User = sequelize.define('user', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     email: {type: DataTypes.STRING, unique: true,},
+    activationLink: {type: DataTypes.STRING, unique: true},
+    isActivated: {type: DataTypes.BOOLEAN, defaultValue: false},
     password: {type: DataTypes.STRING},
     role: {type: DataTypes.STRING, defaultValue: "USER"},
 })
@@ -55,6 +57,11 @@ const ItemInfo = sequelize.define('item_info', {
     description: {type: DataTypes.STRING, allowNull: false},
 })
 
+const Token = sequelize.define('token', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    refreshToken: {type: DataTypes.STRING, required: true}
+})
+
 const TypeBrand = sequelize.define('type_brand', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
@@ -62,6 +69,9 @@ const TypeBrand = sequelize.define('type_brand', {
 
 User.hasOne(Cart)
 Cart.belongsTo(User)
+
+User.hasOne(Token)
+Token.belongsTo(User)
 
 Cart.hasMany(CartItem)
 CartItem.belongsTo(Cart)
@@ -97,7 +107,8 @@ module.exports = {
     Filter,
     Status,
     TypeBrand,
-    ItemInfo
+    ItemInfo,
+    Token
 }
 
 

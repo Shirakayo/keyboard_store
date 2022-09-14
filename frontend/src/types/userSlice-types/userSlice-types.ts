@@ -13,7 +13,8 @@ export interface IStateProps {
     user: userType[],
     role: string;
     isAuthenticated: boolean;
-    status: Status
+    authStatus: Status,
+    checkAuthStatus: Status
 }
 
 export interface getResponse {
