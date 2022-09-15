@@ -2,8 +2,10 @@ import React from 'react';
 import Content from "../Content/Content";
 import style from './PreOrderKeycaps.module.scss'
 import PageLayout from "../../../components/UI/PageLayout/PageLayout";
+import {renderTitle} from "../../../utils/functions/dynamicTitle";
 
 const PreOrderKeycaps = () => {
+    renderTitle('Pre Order Keycaps')
     return (
         <PageLayout>
             <section className={style.pre_order_keycaps}>

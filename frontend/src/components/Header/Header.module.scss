@@ -10,7 +10,7 @@
 
   &_disable {
     background-color: transparent;
-    position: fixed !important;
+    position: fixed;
 
     &:hover {
       background-color: #141414;
@@ -58,6 +58,10 @@
       ul {
         display: flex;
         gap: 30px;
+
+        li {
+          cursor: pointer;
+        }
       }
     }
 
@@ -70,6 +74,7 @@
     &_items {
       display: flex;
       gap: 30px;
+
 
       li {
         list-style-type: none;

@@ -3,12 +3,14 @@ import {useDispatch} from "react-redux";
 import userSlice from "./slices/userSlice";
 import shopSlice from "./slices/shopSlice";
 import filterSlice from "./slices/filterSlice";
+import cartSlice from "./slices/cartSlice";
 
 const store = configureStore({
     reducer: {
         user: userSlice,
         shop: shopSlice,
-        filter: filterSlice
+        filter: filterSlice,
+        cart: cartSlice,
     }
 })
 

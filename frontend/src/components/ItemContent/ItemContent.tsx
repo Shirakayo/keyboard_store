@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import style from "./ItemContent.module.scss";
+import {useAppDispatch} from "../../store/store";
+import {addItemToCard, changeModalState} from "../../store/slices/cartSlice";
 
 interface ItemContentProps {
+  id: number;
   img: string;
   price: number;
   status: string;
@@ -9,20 +12,26 @@ interface ItemContentProps {
 }
 
 const ItemContent = (item: ItemContentProps) => {
-  const { img, status, price, name } = item;
+  const { img, status, price, name, id } = item;
   const [quantityValue, setQuantityValue] = useState(1);
-  
+  const dispatch = useAppDispatch();
+
   const plusQuantityValue = () => {
     setQuantityValue(prev => prev + 1)
   }
-  
+
   const minusQuantityValue = () => {
     if (quantityValue > 1) {
       setQuantityValue(prev => prev - 1)
     }
   }
-  
-  
+
+  function invokeAddItemToCard() {
+    dispatch(addItemToCard(id))
+    dispatch(changeModalState(true))
+  }
+
+
   const soldType = status === "Group-buy" ? "[GB]" : "[IS]";
 
   const validateInput = (field: any) => {
@@ -55,7 +64,7 @@ const ItemContent = (item: ItemContentProps) => {
           />
           <button onClick={plusQuantityValue}>+</button>
         </div>
-        <button className={style.cart_button}>Add to cart</button>
+        <button onClick={invokeAddItemToCard} className={style.cart_button}>Add to cart</button>
       </div>
     </div>
   );

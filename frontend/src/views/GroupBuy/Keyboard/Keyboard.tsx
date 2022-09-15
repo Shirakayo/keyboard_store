@@ -2,9 +2,11 @@ import React from 'react';
 import style from './Keyboard.module.scss'
 import Content from "../Content/Content";
 import PageLayout from "../../../components/UI/PageLayout/PageLayout";
+import {renderTitle} from "../../../utils/functions/dynamicTitle";
 
 
 const KeyboardItem = () => {
+    renderTitle('Group Buy Keyboards')
     return (
         <PageLayout>
             <div className={style.wrapper}>

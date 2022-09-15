@@ -8,7 +8,7 @@ class CartController {
         try {
             const {id} = req.body
             const token = req.headers.authorization.split(' ')[1];
-            const user = jwt.verify(token, process.env.SECRET_KEY);
+            const user = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_KEY);
             const cart = await Cart.findOne({where: {userId: user.id}});
             await CartItem.create({cartId : cart.id, itemId: Number(id)});
             return res.json("Product added in card");
@@ -20,7 +20,7 @@ class CartController {
     async getItem(req, res) {
         try {
             const token = req.headers.authorization.split(' ')[1];
-            const user = jwt.verify(token, process.env.SECRET_KEY);
+            const user = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_KEY);
             const {id} = await Cart.findOne({where: {userId: user.id}});
             const basket = await CartItem.findAll({where: {cartId: id}});
             const basketArr = []
@@ -38,7 +38,11 @@ class CartController {
     async deleteItem(req, res) {
         try {
             const {id} = req.query;
-            const user = req.user;
+            console.log('тут', id)
+
+            const token = req.headers.authorization.split(' ')[1];
+            console.log(token)
+            const user = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_KEY);
             await Cart.findOne({where: {userId: user.id}}).then(async userBasket => {
                 if(userBasket.userId === user.id) {
                     await CartItem.destroy({where: {cartId: userBasket.id, itemId: id}})

@@ -22,7 +22,7 @@ const ItemPage: FC = () => {
     return (
         <PageLayout>
             <div className={style.wrapper}>
-                {items && items.map(el => <ItemContent img={el.img} price={el.price} status={el.status} name={el.name} />)}
+                {items && items.map(el => <ItemContent img={el.img} price={el.price} status={el.status} name={el.name}  id={el.id}/>)}
             </div>
         </PageLayout>
     );

@@ -33,7 +33,9 @@ const Login = () => {
             icon: "success",
             confirmButtonText: "OK",
         }).then(function () {
-            navigate('/')
+            setTimeout(function () {
+                navigate('/')
+            },1000)
         });
     }
 

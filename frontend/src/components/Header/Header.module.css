@@ -10,7 +10,7 @@
 }
 .header_disable {
   background-color: transparent;
-  position: fixed !important;
+  position: fixed;
 }
 .header_disable:hover {
   background-color: #141414;
@@ -47,6 +47,9 @@
 .header_nav_sub ul {
   display: flex;
   gap: 30px;
+}
+.header_nav_sub ul li {
+  cursor: pointer;
 }
 .header_nav_search {
   background-color: transparent;

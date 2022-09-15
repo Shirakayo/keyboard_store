@@ -2,8 +2,10 @@ import React from 'react';
 import style from './Keycaps.module.scss'
 import Content from "../Content/Content";
 import PageLayout from "../../../components/UI/PageLayout/PageLayout";
+import {renderTitle} from "../../../utils/functions/dynamicTitle";
 
 const Keycaps = () => {
+    renderTitle('Group Buy Keycaps')
     return (
         <PageLayout>
             <section className={style.keycaps}>

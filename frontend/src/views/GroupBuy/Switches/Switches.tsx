@@ -2,8 +2,10 @@ import React from 'react';
 import Content from "../Content/Content";
 import style from './Switches.module.scss'
 import PageLayout from "../../../components/UI/PageLayout/PageLayout";
+import {renderTitle} from "../../../utils/functions/dynamicTitle";
 
 const Switches = () => {
+    renderTitle('Group Buy Switches')
     return (
         <PageLayout>
             <section className={style.switches}>
