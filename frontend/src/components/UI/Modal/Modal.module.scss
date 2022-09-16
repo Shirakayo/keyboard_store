@@ -11,6 +11,8 @@
   width: 100vw;
 
   &_content {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     animation: modalTransition .3s ease-in;
     width: 500px;
@@ -39,6 +41,7 @@
         cursor: pointer;
       }
     }
+
     &_body {
       height: 100%;
       display: flex;
@@ -48,22 +51,60 @@
 
     &_filled {
       display: flex;
+      flex: 1;
       gap: 10px;
       padding: 30px;
     }
   }
-  }
+  &_footer {
+    padding: 20px 40px 40px 40px;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    display: flex;
+    flex-direction: column;
 
-  @keyframes modalTransition {
-    from {
-      opacity: 0;
-      transition: all .6s ease-in;
+    &_content {
+      display: flex;
+      margin-bottom: 26px;
+      justify-content: space-between;
+      align-items: center;
+      color: #999999;
+      font-size: 0.3rem;
+
+      &_note {
+        font-size: 0.9rem;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      &_checkout {
+        font-size: 0.9rem;
+      }
     }
 
-    to {
-      opacity: 1;
+    &_link {
+      background-color: white;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1.1rem;
+      font-weight: 500;
+      width: 100%;
+      color: black;
+      text-align: center;
+      border-radius: 5px;
+      padding: 15px;
     }
-
   }
+}
+
+@keyframes modalTransition {
+  from {
+    opacity: 0;
+    transition: all .6s ease-in;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./ItemContent.module.scss";
-import {useAppDispatch} from "../../store/store";
-import {addItemToCard, changeModalState} from "../../store/slices/cartSlice";
+import { useAppDispatch } from "../../store/store";
+import { addItemToCard, changeModalState } from "../../store/slices/cartSlice";
 
 interface ItemContentProps {
   id: number;
@@ -17,26 +17,25 @@ const ItemContent = (item: ItemContentProps) => {
   const dispatch = useAppDispatch();
 
   const plusQuantityValue = () => {
-    setQuantityValue(prev => prev + 1)
-  }
+    setQuantityValue((prev) => prev + 1);
+  };
 
   const minusQuantityValue = () => {
     if (quantityValue > 1) {
-      setQuantityValue(prev => prev - 1)
+      setQuantityValue((prev) => prev - 1);
     }
-  }
+  };
 
   function invokeAddItemToCard() {
-    dispatch(addItemToCard(id))
-    dispatch(changeModalState(true))
+    dispatch(addItemToCard(id));
+    dispatch(changeModalState(true));
   }
-
 
   const soldType = status === "Group-buy" ? "[GB]" : "[IS]";
 
   const validateInput = (field: any) => {
-    if (field === '0') {
-      return
+    if (field === "0") {
+      return;
     }
     setQuantityValue((prev) => (/\d+/.test(field) ? field : prev));
   };
@@ -64,7 +63,9 @@ const ItemContent = (item: ItemContentProps) => {
           />
           <button onClick={plusQuantityValue}>+</button>
         </div>
-        <button onClick={invokeAddItemToCard} className={style.cart_button}>Add to cart</button>
+        <button onClick={invokeAddItemToCard} className={style.cart_button}>
+          Add to cart
+        </button>
       </div>
     </div>
   );

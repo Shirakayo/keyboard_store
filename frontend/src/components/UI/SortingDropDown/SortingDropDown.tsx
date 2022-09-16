@@ -1,4 +1,4 @@
-import React, {forwardRef, useState} from "react";
+import React, {useState} from "react";
 import style from "./SortingDropDown.module.scss";
 import { sortedList, sortListItem } from "../../../utils/dropdown";
 
@@ -8,11 +8,11 @@ interface SortingDropDownProps {
   setSortValue: (type: string) => void;
 }
 
-const SortingDropDown = forwardRef<HTMLDivElement,SortingDropDownProps >(({
+const SortingDropDown = (({
   setViewDropDown,
   setViewSortType,
   setSortValue,
-}) => {
+}: SortingDropDownProps) => {
   const [sortedMarks] = useState(sortedList);
 
 

@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 import {GB_ROUTES} from "../../../utils/const";
 import {useAppDispatch} from "../../../store/store";
 import {deleteItemFromCard} from "../../../store/slices/cartSlice";
+import {Status} from "../../../types/userSlice-types/userSlice-types";
+import Loader from "../../UI/Loader/Loader";
 
 interface items {
     id: number;
@@ -15,9 +17,10 @@ interface items {
 interface CartModalContent {
     items: items[];
     closeModal: () => void;
+    status: string;
 }
 
-const CartModalContent = ({items, closeModal}: CartModalContent) => {
+const CartModalContent = ({items, closeModal, status}: CartModalContent) => {
     const dispatch = useAppDispatch();
 
     if (items.length === 0) {
@@ -29,9 +32,15 @@ const CartModalContent = ({items, closeModal}: CartModalContent) => {
         )
     }
 
+    if (status === Status.LOADING) {
+      return <Loader />;
+    }
+
     function removeItem(id: number) {
         dispatch(deleteItemFromCard(id))
     }
+
+    console.log(items)
 
     return (
       <div>

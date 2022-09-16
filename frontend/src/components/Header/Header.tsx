@@ -43,7 +43,6 @@ export const Header = ({
     }
   }
 
-  console.log(viewModal)
 
   useEffect(() => {
     if (viewModal) {
