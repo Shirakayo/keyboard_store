@@ -6,10 +6,12 @@ import {
   fetchItems,
 } from "../../http/api/cartApi";
 import { Status } from "../../types/userSlice-types/userSlice-types";
+import { CartState } from "../../types/cartSlice-type/cart-types";
 
-const initialState = {
+const initialState: CartState = {
   cartItems: [],
   viewModal: false,
+  totalCount: 0,
   cartStatus: Status.DEFAULT,
 };
 
@@ -25,7 +27,6 @@ export const deleteItemFromCard = createAsyncThunk(
   "cart/deleteItemFromCard",
   async (id: number) => {
     const { data } = await deleteCartItem(id);
-    console.log(data);
     return data;
   }
 );
@@ -61,7 +62,8 @@ export const cartSlice = createSlice({
     });
 
     builder.addCase(deleteItemFromCard.fulfilled, (state, action) => {
-      state.cartItems = action.payload;
+      state.cartItems = action.payload.cart_items;
+      state.totalCount = action.payload.totalCart_price;
       state.cartStatus = Status.SUCCESS;
     });
 
@@ -76,7 +78,8 @@ export const cartSlice = createSlice({
     builder.addCase(
       fetchCardItem.fulfilled,
       (state, action: { payload: any }) => {
-        state.cartItems = action.payload;
+        state.cartItems = action.payload.cart_items;
+        state.totalCount = action.payload.totalCart_price;
         state.cartStatus = Status.SUCCESS;
       }
     );

@@ -31,7 +31,7 @@ const SortingSection = () => {
         <div className={style.preview}>
           <span className={style.filter_title}>Sort By</span>
           <div
-            onClick={() => setViewDropDown(!viewDropDown)}
+              onClick={() => setViewDropDown(!viewDropDown)}
             className={style.filter_sort_section}
           >
             <p className={style["preview_sort-type"]}>{viewSortType}</p>

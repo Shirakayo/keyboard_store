@@ -35,41 +35,8 @@
   margin-bottom: 30px;
 }
 
-.quantity {
-  display: inline-flex;
+.quantity_wrapper {
   margin-bottom: 20px;
-  align-items: center;
-  justify-content: flex-start;
-  border: 1px solid rgba(68, 68, 68, .7);
-  border-radius: 5px;
-
-  input[type="number"] {
-    -moz-appearance: textfield;
-  }
-
-  input[type="number"]:hover,
-  input[type="number"]:focus {
-    -moz-appearance: none;
-  }
-
-  button {
-    background-color: transparent;
-    border: none;
-    padding: 0 25px;
-    cursor: pointer;
-  }
-
-  &_field {
-    height: 45px;
-    width: 46px;
-    background-color: transparent;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #EEF0F2;
-    padding: 5px;
-    outline: none;
-    border: none;
-  }
 }
 
 .cart_button {

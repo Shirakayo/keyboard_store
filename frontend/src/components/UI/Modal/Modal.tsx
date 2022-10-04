@@ -24,6 +24,7 @@ const Modal = () => {
   const { cartItems, cartStatus } = useSelector(cartSelector);
   const modalRef = useRef(null);
 
+  console.log(cartItems)
   useOnClickOutside(modalRef, closeModalView);
 
   useEffect(() => {
@@ -42,6 +43,10 @@ const Modal = () => {
       document.body.removeEventListener("keydown", closeOnEscapeKey);
     };
   }, []);
+
+  if (!cartItems) {
+    console.log('error')
+  }
 
   return createPortal(
     <div className={style.modal}>
