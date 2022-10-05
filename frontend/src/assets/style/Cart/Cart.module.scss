@@ -43,7 +43,7 @@
     }
 
     &_estimate {
-      width: 100%;
+      width: 23%;
 
 
       &_total {
@@ -64,7 +64,24 @@
         }
       }
       &_info {
-        color: rgba(255,255,255, .7)
+        color: rgba(255,255,255, .7);
+        margin-bottom: 24px;
+      }
+
+      &_protection {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-right: 60px;
+        color: white;
+
+        &_info {
+          text-decoration: none;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
       }
     }
   }
@@ -109,5 +126,33 @@
     border: none;
     border-radius: 3px;
     padding: 15px 50px;
+  }
+}
+
+.checkout_button {
+  display: flex;
+  align-items: center;
+  border: none;
+  width: 100%;
+  padding: 15px 35px 15px 10px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 30px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255,255,255, .9);
+  }
+
+  &_lockIcon {
+    margin-right: 80px;
+  }
+
+  &_title {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 400;
   }
 }

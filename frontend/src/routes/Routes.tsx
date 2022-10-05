@@ -84,13 +84,13 @@ export const publicRoutes = [
         path: SUPPORT_ROUTES,
         component: <Support />
     },
-]
-
-export const privateRoutes = [
     {
         path: CART_ROUTE,
         component: <Cart />
     },
+]
+
+export const privateRoutes = [
     {
         path: ADMIN_PANEL_ROUTES,
         component: <AdminPanel />

@@ -1,3 +1,5 @@
+@import '@sweetalert2/theme-dark/dark.scss';
+
 .wrapper {
   max-width: 1000px;
   margin: 0 auto;
@@ -67,4 +69,32 @@
   width: 100%;
   gap: 5px;
   justify-content: flex-end;
+}
+
+.success_alert_container {
+  background-color: rgba(0,0,0,0.5) !important;
+}
+
+.success_alert_icon {
+  border: .25em solid rgba(255,255,255,.9) !important;
+}
+
+.success_alert_popup {
+  background-color: black !important;
+  color: #EEF0F2 !important;
+}
+
+.success_alert_confirmButton {
+  background-color: transparent !important;
+  color: white !important;
+  border: 1px solid white !important;
+  padding: 10px 50px !important;
+
+  &:focus {
+    box-shadow:0 0 0 1px rgba(255,255,255,.7) !important;
+  }
+}
+
+.success_alert_title {
+  color: #EEF0F2 !important;
 }

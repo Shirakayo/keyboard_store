@@ -22,3 +22,11 @@ li {
   overflow-y: hidden;
 }
 
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+  background-color: #EEF0F2 !important;
+}
+
+body.swal2-shown > [aria-hidden="true"] {
+  transition: 0.1s filter;
+  filter: blur(2px);
+}

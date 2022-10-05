@@ -5,6 +5,11 @@ import { cartSelector, fetchCardItem } from "../store/slices/cartSlice";
 import { useAppDispatch } from "../store/store";
 import { useSelector } from "react-redux";
 import CartItem from "../components/Cart/CartItem/CartItem";
+import {MdOutlineLock} from "react-icons/md";
+import {RiInformationLine} from "react-icons/ri";
+import {CART_ROUTE} from "../utils/const";
+import {NavLink} from "react-router-dom";
+
 
 const Cart = () => {
   const dispatch = useAppDispatch();
@@ -57,6 +62,16 @@ const Cart = () => {
               <p className={style.cart_content_estimate_info}>
                 Shipping & taxes calculated at checkout
               </p>
+              <div className={style.cart_content_estimate_protection}>
+                <RiInformationLine size={30}/>
+                <p>Add shipping protection</p>
+                <input type="checkbox"/>
+              </div>
+              <NavLink className={style.cart_content_estimate_protection_info} to={CART_ROUTE}>Add shipping insurance/protection </NavLink>
+              <button className={style.checkout_button} >
+                <MdOutlineLock size={20} className={style.checkout_button_lockIcon} />
+                <p className={style.checkout_button_title}>Checkout</p>
+              </button>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import {useAppDispatch} from "../../../store/store";
 import {deleteItemFromCard} from "../../../store/slices/cartSlice";
 import {Status} from "../../../types/userSlice-types/userSlice-types";
 import Loader from "../../UI/Loader/Loader";
+import Quantity from "../../UI/Quantity/Quantity";
 
 interface items {
     id: number;
@@ -43,13 +44,16 @@ const CartModalContent = ({items, closeModal, status}: CartModalContent) => {
     console.log(items)
 
     return (
-      <div>
+      <div className={style.modal_item}>
         {items.map((item) => (
           <div className={style.body} key={item.id}>
             <img className={style.body_image} src={`http://localhost:5000/${item.img}`} alt={item.name} />
-              <div>
+              <div className={style.body_info}>
                   <p className={style.body_name}>{item.name}</p>
-                  <button onClick={() => removeItem(item.id)} className={style.body_button}>Remove</button>
+                  <div className={style.body_function}>
+                      <Quantity cartQuantityStyle={true} buttonPadding='0 9px' />
+                      <p onClick={() => removeItem(item.id)} className={style.body_button}>Remove</p>
+                  </div>
               </div>
           </div>
         ))}

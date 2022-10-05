@@ -28,8 +28,9 @@
 
 .slide_content {
   position: absolute;
-  top: 40%;
-  left: 0;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
   margin-left: 300px;
   color: rgb(238, 240, 242);
   font-size: 1.3rem;

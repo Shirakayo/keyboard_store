@@ -44,10 +44,6 @@ export const navList: navListType[] = [
 			{
 				title: "Deskmats",
 				path: GB_DESKMATS
-			},
-			{
-				title: "Merchandise",
-				path: "group-buy/merchandise"
 			}
 		]
 	},
